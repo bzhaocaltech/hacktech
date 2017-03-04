@@ -5,23 +5,25 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 Hello.py	../../Hello.py	1;"	kind:file	line:1
-ROTATIONCHANGE	../../Hello.py	/^ROTATIONCHANGE = 300$/;"	kind:variable	line:16
-VELOCITYCHANGE	../../Hello.py	/^VELOCITYCHANGE = 200$/;"	kind:variable	line:15
-callbackKey	../../Hello.py	/^def callbackKey(event):$/;"	kind:function	line:40
-connection	../../Hello.py	/^connection = None$/;"	kind:variable	line:13
+ROTATIONUNIT	../../Hello.py	/^ROTATIONUNIT = 300$/;"	kind:variable	line:24
+VELOCITYUNIT	../../Hello.py	/^VELOCITYUNIT = 200$/;"	kind:variable	line:23
+callbackKey	../../Hello.py	/^def callbackKey(event):$/;"	kind:function	line:48
+connection	../../Hello.py	/^connection = None$/;"	kind:variable	line:21
 glob	../../Hello.py	/^import sys, glob$/;"	kind:namespace	line:7
 itertools	../../Hello.py	/^import itertools$/;"	kind:namespace	line:10
-menu	../../Hello.py	/^menu = Menu(root)$/;"	kind:variable	line:116
-onConnect	../../Hello.py	/^def onConnect():$/;"	kind:function	line:92
-onQuit	../../Hello.py	/^def onQuit():$/;"	kind:function	line:105
-root	../../Hello.py	/^root = Tk()$/;"	kind:variable	line:114
-scroll	../../Hello.py	/^scroll = Scrollbar(root, command=text.yview)$/;"	kind:variable	line:122
-sendCommandASCII	../../Hello.py	/^def sendCommandASCII(command):$/;"	kind:function	line:35
-sendCommandRaw	../../Hello.py	/^def sendCommandRaw(command):$/;"	kind:function	line:18
+leftMotion	../../Hello.py	/^leftMotion = 0$/;"	kind:variable	line:121
+menu	../../Hello.py	/^menu = Menu(root)$/;"	kind:variable	line:126
+onConnect	../../Hello.py	/^def onConnect():$/;"	kind:function	line:104
+onQuit	../../Hello.py	/^def onQuit():$/;"	kind:function	line:117
+root	../../Hello.py	/^root = Tk()$/;"	kind:variable	line:124
+scroll	../../Hello.py	/^scroll = Scrollbar(root, command=text.yview)$/;"	kind:variable	line:132
+sendCommandASCII	../../Hello.py	/^def sendCommandASCII(command):$/;"	kind:function	line:43
+sendCommandRaw	../../Hello.py	/^def sendCommandRaw(command):$/;"	kind:function	line:26
 serial	../../Hello.py	/^import serial $/;"	kind:namespace	line:1
 struct	../../Hello.py	/^import struct $/;"	kind:namespace	line:2
 sys	../../Hello.py	/^import sys, glob$/;"	kind:namespace	line:7
-text	../../Hello.py	/^text = Text(root, height=16, width=40, wrap=WORD)$/;"	kind:variable	line:121
+text	../../Hello.py	/^text = Text(root, height=16, width=40, wrap=WORD)$/;"	kind:variable	line:131
 tkMessageBox	../../Hello.py	/^import tkMessageBox$/;"	kind:namespace	line:5
 tkSimpleDialog	../../Hello.py	/^import tkSimpleDialog$/;"	kind:namespace	line:6
+upMotion	../../Hello.py	/^upMotion = 0$/;"	kind:variable	line:120
 winreg	../../Hello.py	/^import _winreg as winreg$/;"	kind:namespace	line:9
