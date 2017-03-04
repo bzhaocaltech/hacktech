@@ -36,9 +36,6 @@ def sendCommandASCII(command):
     cmd = ""
     for v in command.split():
         sendCommandRaw(chr(int(v)))
-        #cmd += chr(int(v))
-
-    #sendCommandRaw(cmd)
 
 def callbackKey(event):
     k = event.keysym.upper()
@@ -73,8 +70,8 @@ def callbackKey(event):
             callbackKey.right = True
             motionChange = True
         elif k == 'DOWN':
-            callbackKey.down = True
-            motionChange = True
+            callbackKey.down = False
+            motionChange = False
 
     if motionChange == True:
         velocity = 0
@@ -97,10 +94,10 @@ def onConnect():
 
     ports = "COM3"
 
-    if port is not None:
-        print 'Connecting to ' + str(port) + '...'
+    if ports is not None:
+        print 'Connecting to ' + str(ports) + '...'
         try:
-            connection = serial.Serial(port, baudrate=115200, timeout=1)
+            connection = serial.Serial(ports, baudrate=115200, timeout=1)
             print "Connected!"
         except:
             print "Failed."
