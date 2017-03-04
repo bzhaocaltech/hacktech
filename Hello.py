@@ -75,6 +75,10 @@ def callbackKey(event):
                 upMotion = 0
             upMotion -= 1
             motionChange = True
+        elif k == 'M': # Stop movement
+            upMotion = 0
+            leftMotion = 0
+            motionChange = True
 
     if motionChange == True:
         velocity = upMotion * VELOCITYUNIT
