@@ -65,23 +65,15 @@ def callbackKey(event):
         elif k == 'R':
             sendCommandASCII('7')
         elif k == 'UP':
-            if upMotion < 0:
-                upMotion = 0
             upMotion += 1
             motionChange = True
         elif k == 'LEFT':
-            if leftMotion < 0:
-                leftMotion = 0
             leftMotion += 1
             motionChange = True
         elif k == 'RIGHT':
-            if leftMotion > 0:
-                leftMotion = 0
             leftMotion -= 1
             motionChange = True
         elif k == 'DOWN':
-            if upMotion > 0:
-                upMotion = 0
             upMotion -= 1
             motionChange = True
         elif k == 'M': # Stop movement
