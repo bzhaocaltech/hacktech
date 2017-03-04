@@ -46,6 +46,7 @@ def sendCommandASCII(command):
         sendCommandRaw(chr(int(v)))
 
 def callbackKey(event):
+    global upMotion, leftMotion
     k = event.keysym.upper()
     motionChange = False
 
