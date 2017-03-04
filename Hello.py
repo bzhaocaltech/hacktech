@@ -17,8 +17,9 @@ import itertools
 
 connection = None
 
-VELOCITYUNIT = 200
-ROTATIONUNIT = 300
+VELOCITYUNIT = 200 # How much faster robot moves with each up/down
+ROTATIONUNIT = 300 # How much faster robot rotates with each left/right
+MAXSPEED = 3 # Max number of VELOCITYUNITS and ROTATIONUNITS robot can go
 
 upMotion = 0
 leftMotion = 0
@@ -66,17 +67,21 @@ def callbackKey(event):
         elif k == 'R':
             sendCommandASCII('7')
         elif k == 'UP':
-            upMotion += 1
-            motionChange = True
-        elif k == 'LEFT':
-            leftMotion += 1
-            motionChange = True
-        elif k == 'RIGHT':
-            leftMotion -= 1
-            motionChange = True
+            if upMotion < MAXSPEED:
+                upMotion += 1
+                motionChange = True
         elif k == 'DOWN':
-            upMotion -= 1
-            motionChange = True
+            if upMotion > -MAXSPEED:
+                upMotion -= 1
+                motionChange = True
+        elif k == 'LEFT':
+            if leftMotion < MAXSPEED:
+                leftMotion += 1
+                motionChange = True
+        elif k == 'RIGHT':
+            if leftMotion > -MAXSPEED:
+                leftMotion -= 1
+                motionChange = True
         elif k == 'M': # Stop movement
             upMotion = 0
             leftMotion = 0
