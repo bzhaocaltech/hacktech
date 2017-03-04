@@ -70,8 +70,8 @@ def callbackKey(event):
             callbackKey.right = True
             motionChange = True
         elif k == 'DOWN':
-            callbackKey.down = False
-            motionChange = False
+            callbackKey.down = True
+            motionChange = True
 
     if motionChange == True:
         velocity = 0
