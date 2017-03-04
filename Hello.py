@@ -20,6 +20,9 @@ connection = None
 VELOCITYUNIT = 200
 ROTATIONUNIT = 300
 
+upMotion = 0
+leftMotion = 0
+
 def sendCommandRaw(command):
     global connection
 
@@ -114,8 +117,6 @@ def onConnect():
 def onQuit():
     root.destroy()
 
-upMotion = 0
-leftMotion = 0
 callbackKey.lastDriveCommand = ''
 
 root = Tk()
