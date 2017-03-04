@@ -8,7 +8,12 @@ import sys, glob
 
 import _winreg as winreg
 import itertools
-#hi
+
+'''Cmds = {'128': 'PASSIVE MODE', '131': 'SAFE MODE', 
+        '132': 'FULL MODE', '135': 'CLEAN', 
+        '143': 'DOCK', 'SPACE': 'BEEP'
+        '7': 'RESET'}
+'''
 
 connection = None
 
