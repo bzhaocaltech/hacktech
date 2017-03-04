@@ -52,33 +52,33 @@ def callbackKey(event):
     motionChange = False
 
     if event.type == '2':
-        if k == 'P': 
+        if k == 'P': # Passive Mode
             sendCommandASCII('128')
-        elif k =='S':
+        elif k =='S': # Safe Mode
             sendCommandASCII('131')
-        elif k == 'F':
+        elif k == 'F': # Full Mode
             sendCommandASCII('132')
-        elif k == 'C':
+        elif k == 'C': # Clean
             sendCommandASCII('135')
-        elif k == 'D':
+        elif k == 'D': # Dock
             sendCommandASCII('143')
-        elif k == 'SPACE':
+        elif k == 'SPACE': # Beep
             sendCommandASCII('140 3 1 64 16 141 3')
-        elif k == 'R':
+        elif k == 'R': # Reset
             sendCommandASCII('7')
-        elif k == 'UP':
+        elif k == 'UP': # Forward
             if upMotion < MAXSPEED:
                 upMotion += 1
                 motionChange = True
-        elif k == 'DOWN':
+        elif k == 'DOWN': # Backward
             if upMotion > -MAXSPEED:
                 upMotion -= 1
                 motionChange = True
-        elif k == 'LEFT':
+        elif k == 'LEFT': # Counterclockwise
             if leftMotion < MAXSPEED:
                 leftMotion += 1
                 motionChange = True
-        elif k == 'RIGHT':
+        elif k == 'RIGHT': # Clockwise
             if leftMotion > -MAXSPEED:
                 leftMotion -= 1
                 motionChange = True
