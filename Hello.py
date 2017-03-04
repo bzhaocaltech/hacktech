@@ -9,11 +9,10 @@ import sys, glob
 import _winreg as winreg
 import itertools
 
-'''Cmds = {'128': 'PASSIVE MODE', '131': 'SAFE MODE', 
-        '132': 'FULL MODE', '135': 'CLEAN', 
-        '143': 'DOCK', 'SPACE': 'BEEP'
-        '7': 'RESET'}
-'''
+Cmds = {'P': '128', 'S': '132', 'F': '132', 'C': '135',
+        'D': '143', 'SPACE': '140 3 1 64 16 141 3', 'R': '7'
+        }
+
 
 connection = None
 
@@ -28,6 +27,7 @@ def sendCommandRaw(command):
 
     try:
         if connection is not None:
+            print type(connection)
             connection.write(command)
         else:
             print "Not Connnected!!"
@@ -35,36 +35,53 @@ def sendCommandRaw(command):
     except serial.SerialException:
         print "Lost connection!"
         connection = None
-    print ' '.join([str(ord(c)) for c in command])
-    text.insert(END, ' '.join([str(ord(c)) for c in command]))
-    text.insert(END, '\n')
-    text.see(END)
+
+    
+    cmd = ' '.join([str(ord(c)) for c in command])
+    if cmd[:3] == '145':
+        print 'MOTION' + cmd[3:]
+        text.insert(END, 'MOTION' + cmd[3:])
+        text.insert(END, '\n')
+        text.see(END)      
 
 def sendCommandASCII(command):
     cmd = ""
     for v in command.split():
         sendCommandRaw(chr(int(v)))
 
+def printToCMD(command):
+    print command
+    text.insert(END, command)
+    text.insert(END, '\n')
+    text.see(END)
+
 def callbackKey(event):
-    global upMotion, leftMotion
+    global upMotion, leftMotion, connection
     k = event.keysym.upper()
     motionChange = False
 
     if event.type == '2':
         if k == 'P': 
-            sendCommandASCII('128')
+            sendCommandASCII(Cmds['P'])
+            print 'PASSIVE MODE'
         elif k =='S':
-            sendCommandASCII('131')
+            sendCommandASCII(Cmds['S'])
+            print 'SAFE MODE'
         elif k == 'F':
-            sendCommandASCII('132')
+            sendCommandASCII(Cmds['F'])
+            print 'FULL MODE'
         elif k == 'C':
-            sendCommandASCII('135')
+            sendCommandASCII(Cmds['C'])
+            print 'CLEAN'
         elif k == 'D':
-            sendCommandASCII('143')
+            sendCommandASCII(Cmds['D'])
+            print 'DOCK'
         elif k == 'SPACE':
-            sendCommandASCII('140 3 1 64 16 141 3')
+            sendCommandASCII(Cmds['SPACE'])
+            print 'BEEEEEEP'
         elif k == 'R':
-            sendCommandASCII('7')
+            sendCommandASCII(Cmds['R'])
+            print 'RESET'
         elif k == 'UP':
             upMotion += 1
             motionChange = True
@@ -81,6 +98,11 @@ def callbackKey(event):
             upMotion = 0
             leftMotion = 0
             motionChange = True
+        
+        elif k == 'Q': 
+            sendCommandASCII('148 2 29 13')
+            connection.read()
+
 
     if motionChange == True:
         velocity = upMotion * VELOCITYUNIT
@@ -89,10 +111,13 @@ def callbackKey(event):
         vr = velocity + (rotation / 2)
         vl = velocity - (rotation / 2)
 
+
         cmd = struct.pack(">Bhh", 145, vr, vl)
         if cmd != callbackKey.lastDriveCommand:
             sendCommandRaw(cmd)
             callbackKey.lastDriveCommand = cmd
+    
+
         
 def onConnect():
     global connection 
