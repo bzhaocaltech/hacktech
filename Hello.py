@@ -16,8 +16,9 @@ Cmds = {'P': '128', 'S': '132', 'F': '132', 'C': '135',
 
 connection = None
 
-VELOCITYUNIT = 200
-ROTATIONUNIT = 300
+VELOCITYUNIT = 200 # How much faster robot moves with each up/down
+ROTATIONUNIT = 300 # How much faster robot rotates with each left/right
+MAXSPEED = 3 # Max number of VELOCITYUNITS and ROTATIONUNITS robot can go
 
 upMotion = 0
 leftMotion = 0
@@ -61,6 +62,7 @@ def callbackKey(event):
     motionChange = False
 
     if event.type == '2':
+<<<<<<< HEAD
         if k == 'P': 
             sendCommandASCII(Cmds['P'])
             print 'PASSIVE MODE'
@@ -94,6 +96,7 @@ def callbackKey(event):
         elif k == 'DOWN':
             upMotion -= 1
             motionChange = True
+
         elif k == 'M': # Stop movement
             upMotion = 0
             leftMotion = 0

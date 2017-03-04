@@ -4,26 +4,45 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+Cmds	../../Hello.py	/^Cmds = {'P': '128', 'S': '132', 'F': '132', 'C': '135',$/;"	kind:variable	line:12
 Hello.py	../../Hello.py	1;"	kind:file	line:1
-ROTATIONUNIT	../../Hello.py	/^ROTATIONUNIT = 300$/;"	kind:variable	line:24
-VELOCITYUNIT	../../Hello.py	/^VELOCITYUNIT = 200$/;"	kind:variable	line:23
-callbackKey	../../Hello.py	/^def callbackKey(event):$/;"	kind:function	line:48
-connection	../../Hello.py	/^connection = None$/;"	kind:variable	line:21
+MAXSPEED	../../Hello.py	/^MAXSPEED = 3 # Max number of VELOCITYUNITS and ROTATIONUNITS robot can go$/;"	kind:variable	line:21
+ROTATIONUNIT	../../Hello.py	/^ROTATIONUNIT = 300 # How much faster robot rotates with each left\/right$/;"	kind:variable	line:20
+VELOCITYUNIT	../../Hello.py	/^VELOCITYUNIT = 200 # How much faster robot moves with each up\/down$/;"	kind:variable	line:19
+callbackKey	../../Hello.py	/^def callbackKey(event):$/;"	kind:function	line:59
+cmd	../../Hello.py	/^        cmd = struct.pack(">Bhh", 145, vr, vl)$/;"	kind:variable	line:149
+connection	../../Hello.py	/^connection = None$/;"	kind:variable	line:17
 glob	../../Hello.py	/^import sys, glob$/;"	kind:namespace	line:7
 itertools	../../Hello.py	/^import itertools$/;"	kind:namespace	line:10
-leftMotion	../../Hello.py	/^leftMotion = 0$/;"	kind:variable	line:121
-menu	../../Hello.py	/^menu = Menu(root)$/;"	kind:variable	line:126
-onConnect	../../Hello.py	/^def onConnect():$/;"	kind:function	line:104
-onQuit	../../Hello.py	/^def onQuit():$/;"	kind:function	line:117
-root	../../Hello.py	/^root = Tk()$/;"	kind:variable	line:124
-scroll	../../Hello.py	/^scroll = Scrollbar(root, command=text.yview)$/;"	kind:variable	line:132
-sendCommandASCII	../../Hello.py	/^def sendCommandASCII(command):$/;"	kind:function	line:43
+leftMotion	../../Hello.py	/^            leftMotion = 0$/;"	kind:variable	line:133
+leftMotion	../../Hello.py	/^leftMotion = 0$/;"	kind:variable	line:24
+menu	../../Hello.py	/^menu = Menu(root)$/;"	kind:variable	line:176
+motionChange	../../Hello.py	/^                motionChange = True$/;"	kind:variable	line:117
+motionChange	../../Hello.py	/^                motionChange = True$/;"	kind:variable	line:121
+motionChange	../../Hello.py	/^                motionChange = True$/;"	kind:variable	line:125
+motionChange	../../Hello.py	/^                motionChange = True$/;"	kind:variable	line:129
+motionChange	../../Hello.py	/^            motionChange = True$/;"	kind:variable	line:134
+motionChange	../../Hello.py	/^            motionChange = True$/;"	kind:variable	line:89
+motionChange	../../Hello.py	/^            motionChange = True$/;"	kind:variable	line:92
+motionChange	../../Hello.py	/^            motionChange = True$/;"	kind:variable	line:95
+motionChange	../../Hello.py	/^            motionChange = True$/;"	kind:variable	line:98
+onConnect	../../Hello.py	/^def onConnect():$/;"	kind:function	line:156
+onQuit	../../Hello.py	/^def onQuit():$/;"	kind:function	line:169
+printToCMD	../../Hello.py	/^def printToCMD(command):$/;"	kind:function	line:53
+root	../../Hello.py	/^root = Tk()$/;"	kind:variable	line:174
+rotation	../../Hello.py	/^        rotation = leftMotion * ROTATIONUNIT$/;"	kind:variable	line:143
+scroll	../../Hello.py	/^scroll = Scrollbar(root, command=text.yview)$/;"	kind:variable	line:182
+sendCommandASCII	../../Hello.py	/^def sendCommandASCII(command):$/;"	kind:function	line:48
 sendCommandRaw	../../Hello.py	/^def sendCommandRaw(command):$/;"	kind:function	line:26
 serial	../../Hello.py	/^import serial $/;"	kind:namespace	line:1
 struct	../../Hello.py	/^import struct $/;"	kind:namespace	line:2
 sys	../../Hello.py	/^import sys, glob$/;"	kind:namespace	line:7
-text	../../Hello.py	/^text = Text(root, height=16, width=40, wrap=WORD)$/;"	kind:variable	line:131
+text	../../Hello.py	/^text = Text(root, height=16, width=40, wrap=WORD)$/;"	kind:variable	line:181
 tkMessageBox	../../Hello.py	/^import tkMessageBox$/;"	kind:namespace	line:5
 tkSimpleDialog	../../Hello.py	/^import tkSimpleDialog$/;"	kind:namespace	line:6
-upMotion	../../Hello.py	/^upMotion = 0$/;"	kind:variable	line:120
+upMotion	../../Hello.py	/^            upMotion = 0$/;"	kind:variable	line:132
+upMotion	../../Hello.py	/^upMotion = 0$/;"	kind:variable	line:23
+velocity	../../Hello.py	/^        velocity = upMotion * VELOCITYUNIT$/;"	kind:variable	line:142
+vl	../../Hello.py	/^        vl = velocity - (rotation \/ 2)$/;"	kind:variable	line:146
+vr	../../Hello.py	/^        vr = velocity + (rotation \/ 2)$/;"	kind:variable	line:145
 winreg	../../Hello.py	/^import _winreg as winreg$/;"	kind:namespace	line:9
