@@ -8,12 +8,11 @@ import sys, glob
 
 import _winreg as winreg
 import itertools
-#hi
 
 connection = None
 
-VELOCITYCHANGE = 200
-ROTATIONCHANGE = 300
+VELOCITYUNIT = 200
+ROTATIONUNIT = 300
 
 def sendCommandRaw(command):
     global connection
@@ -42,10 +41,6 @@ def callbackKey(event):
     motionChange = False
 
     if event.type == '2':
-        callbackKey.up = False
-        callbackKey.down = False
-        callbackKey.left = False
-        callbackKey.right = False
         if k == 'P': 
             sendCommandASCII('128')
         elif k =='S':
@@ -61,25 +56,29 @@ def callbackKey(event):
         elif k == 'R':
             sendCommandASCII('7')
         elif k == 'UP':
-            callbackKey.up = True
+            if upMotion < 0:
+                upMotion = 0
+            upMotion += 1
             motionChange = True
         elif k == 'LEFT':
-            callbackKey.left = True
+            if leftMotion < 0:
+                leftMotion = 0
+            leftMotion += 1
             motionChange = True
         elif k == 'RIGHT':
-            callbackKey.right = True
+            if leftMotion > 0:
+                leftMotion = 0
+            leftMotion -= 1
             motionChange = True
         elif k == 'DOWN':
-            callbackKey.down = True
+            if upMotion > 0:
+                upMotion = 0
+            upMotion -= 1
             motionChange = True
 
     if motionChange == True:
-        velocity = 0
-        velocity += VELOCITYCHANGE if callbackKey.up is True else 0 
-        velocity -= VELOCITYCHANGE if callbackKey.down is True else 0 
-        rotation = 0
-        rotation += ROTATIONCHANGE if callbackKey.left is True else 0
-        rotation += ROTATIONCHANGE if callbackKey.right is True else 0
+        velocity = upMotion * VELOCITYUNIT
+        rotation = leftMotion * ROTATIONUNIT
 
         vr = velocity + (rotation / 2)
         vl = velocity - (rotation / 2)
@@ -105,10 +104,8 @@ def onConnect():
 def onQuit():
     root.destroy()
 
-callbackKey.up = False
-callbackKey.down = False
-callbackKey.left = False
-callbackKey.right = False
+upMotion = 0
+leftMotion = 0
 callbackKey.lastDriveCommand = ''
 
 root = Tk()
